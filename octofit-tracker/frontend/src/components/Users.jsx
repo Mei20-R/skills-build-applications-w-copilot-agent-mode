@@ -2,8 +2,12 @@ import { fetchCollection } from '../api.js'
 import { CollectionState } from './CollectionState.jsx'
 import { useCollection } from './useCollection.js'
 
+const usersEndpoint = import.meta.env.VITE_CODESPACE_NAME
+  ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/users`
+  : 'http://localhost:8000/api/users'
+
 function Users() {
-  const { items, loading, error } = useCollection(fetchCollection, 'users')
+  const { items, loading, error } = useCollection(fetchCollection, usersEndpoint)
 
   return (
     <section className="content-section">

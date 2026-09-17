@@ -13,7 +13,8 @@ export const getCollection = (payload) => {
 }
 
 export async function fetchCollection(resource) {
-  const response = await fetch(`${API_BASE_URL}/${resource}/`)
+  const endpoint = resource.startsWith('http') ? resource : `${API_BASE_URL}/${resource}/`
+  const response = await fetch(endpoint)
 
   if (!response.ok) {
     throw new Error(`Request failed with status ${response.status}`)

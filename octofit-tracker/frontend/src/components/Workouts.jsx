@@ -2,8 +2,12 @@ import { fetchCollection } from '../api.js'
 import { CollectionState } from './CollectionState.jsx'
 import { useCollection } from './useCollection.js'
 
+const workoutsEndpoint = import.meta.env.VITE_CODESPACE_NAME
+  ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/workouts`
+  : 'http://localhost:8000/api/workouts'
+
 function Workouts() {
-  const { items, loading, error } = useCollection(fetchCollection, 'workouts')
+  const { items, loading, error } = useCollection(fetchCollection, workoutsEndpoint)
 
   return (
     <section className="content-section">

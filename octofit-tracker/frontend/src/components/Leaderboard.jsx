@@ -2,8 +2,12 @@ import { fetchCollection } from '../api.js'
 import { CollectionState } from './CollectionState.jsx'
 import { useCollection } from './useCollection.js'
 
+const leaderboardEndpoint = import.meta.env.VITE_CODESPACE_NAME
+  ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/leaderboard`
+  : 'http://localhost:8000/api/leaderboard'
+
 function Leaderboard() {
-  const { items, loading, error } = useCollection(fetchCollection, 'leaderboard')
+  const { items, loading, error } = useCollection(fetchCollection, leaderboardEndpoint)
 
   return (
     <section className="content-section">
