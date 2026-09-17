@@ -95,6 +95,38 @@ p {
   margin: 0;
 }
 
+:root {
+  --ink: #17324d;
+  --muted: #64798b;
+  --paper: #f6f8f4;
+  --panel: #ffffff;
+  --line: #dce5e3;
+  --teal: #147d78;
+  --teal-soft: #e2f1ee;
+  --coral: #e36e52;
+  --yellow: #f4c95d;
+  color: var(--ink);
+  background: var(--paper);
+  color-scheme: light;
+  font-family: 'Avenir Next', 'Trebuchet MS', sans-serif;
+}
+
+body {
+  min-width: 320px;
+  background:
+    radial-gradient(circle at 88% 4%, rgba(244, 201, 93, 0.24), transparent 24rem),
+    linear-gradient(135deg, #f6f8f4 0%, #edf4f1 100%);
+}
+
+#root {
+  width: 100%;
+  max-width: none;
+  min-height: 100svh;
+  margin: 0;
+  border: 0;
+  text-align: left;
+}
+
 code,
 .counter {
   font-family: var(--mono);
